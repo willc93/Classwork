@@ -1,10 +1,8 @@
 
-
- Programming  C  CSAPP Direct Caching Simulator Lab Solution
-C, Programming
-CSAPP Direct Caching Simulator Lab Solution
-By will
- August 30, 2016
+//Programming  C  CSAPP Direct Caching Simulator Lab Solution
+//C, Programming
+//CSAPP Direct Caching Simulator Lab Solution
+//August 30, 2016
  
 
 /*
