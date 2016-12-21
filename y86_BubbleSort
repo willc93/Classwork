@@ -1,0 +1,129 @@
+		 .pos 0
+
+init:	
+
+		irmovq $0x100, %rax
+
+		rrmovq %rax, %rsp
+
+		rrmovq %rax, %rbp
+
+		xorq %rax, %rax
+
+Main:	
+
+		irmovq $0x1, %rbp
+
+		irmovq $0x28, %rbx
+
+		subq %rbx, %rsp
+
+		irmovq $0x2, %rax					#set count
+
+		rmmovq %rax, %rsi
+
+		irmovq $0x5, %rax					#set value 1
+
+		rmmovq %rax, (%rsp)
+
+		irmovq $0x6, %rax					#set value 2
+
+		rmmovq %rax, 0x4(%rsp)
+
+		irmovq $0x2, %rax					#set value 3
+
+		rmmovq %rax, 0x8(%rsp)
+
+Loop1:		
+
+		xorq %rax, %rax
+
+Loop2:
+
+		pushq %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rsp, %rax
+
+		mrmovq 0x8(%rax),%rdx
+
+		mrmovq (%rax),%rcx
+
+		popq %rax
+
+		pushq %rdx
+
+		subq %rcx, %rdx
+
+		popq %rdx
+
+		jge Loop3
+
+		pushq %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rax, %rax
+
+		addq %rsp, %rax
+
+		rmmovq %rcx,0x8(%rax)
+
+		rmmovq %rdx,(%rax)
+
+		popq %rax
+
+Loop3:
+
+		addq %rbp, %rax
+
+		pushq %rax
+
+		subq %rsi, %rax
+
+		popq %rax
+
+		jl Loop2
+
+		subq %rbp, %rsi
+
+		jne Loop1
+
+		mrmovq 0x10(%rsp),%r8
+
+		mrmovq 0x8(%rsp), %rcx
+
+		irmovq $0x400654, %rsi
+
+		mrmovq (%rsp), %rdx
+
+		rrmovq %rbp, %rdi
+
+		xorq %rax, %rax
+
+		addq %rbx, %rsp
+
+		halt
